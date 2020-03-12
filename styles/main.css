@@ -54,23 +54,24 @@ ul {
   line-height: 16px;
   letter-spacing: 2px;
   color: #fff;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s; }
+  .nav__link:hover {
+    color: #9fadc2; }
   .nav__link--active {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px; }
-  .nav__link:hover {
-    color: #9fadc2; }
 
 .mobile-nav {
   background-color: #0075ff;
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
   width: 100vw;
   -webkit-transform: translate(-20px, -24px);
           transform: translate(-20px, -24px);
-  height: 100vh;
+  height: 80vh;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -132,7 +133,11 @@ ul {
     font-weight: bold;
     line-height: 16px;
     letter-spacing: 2px;
-    color: #fff; }
+    color: #fff;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s; }
+    .header__phone:hover {
+      color: #9fadc2; }
   .header__phone-img {
     display: none; }
   .header__link {
@@ -140,7 +145,11 @@ ul {
     line-height: 16px;
     letter-spacing: 2px;
     color: #fff;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s; }
+    .header__link:hover {
+      color: #9fadc2; }
     .header__link::after {
       content: "";
       display: block;
@@ -230,7 +239,14 @@ ul {
           box-sizing: border-box;
   border-radius: 8px;
   color: #0075ff;
-  text-decoration: none; }
+  text-decoration: none;
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s; }
+  .gallery__link:hover {
+    -webkit-box-shadow: 0 6px 23px rgba(0, 117, 255, 0.46);
+            box-shadow: 0 6px 23px rgba(0, 117, 255, 0.46); }
 
 .gallery__block {
   display: -webkit-box;
@@ -281,7 +297,11 @@ ul {
             box-sizing: border-box;
     margin-bottom: 16px;
     font-size: 14px;
-    line-height: 14px; }
+    line-height: 14px;
+    -webkit-transition: -webkit-box-shadow 0.3s;
+    transition: -webkit-box-shadow 0.3s;
+    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, -webkit-box-shadow 0.3s; }
     .form__input::-webkit-input-placeholder {
       color: #b9c1ce; }
     .form__input::-moz-placeholder {
@@ -292,6 +312,9 @@ ul {
       color: #b9c1ce; }
     .form__input::placeholder {
       color: #b9c1ce; }
+    .form__input:focus {
+      -webkit-box-shadow: 0 6px 23px rgba(0, 117, 255, 0.46);
+              box-shadow: 0 6px 23px rgba(0, 117, 255, 0.46); }
   .form__btn {
     padding: 21px;
     margin-top: 16px;
@@ -303,7 +326,14 @@ ul {
     font-size: 16px;
     line-height: 14px;
     font-weight: bold;
-    color: #fff; }
+    color: #fff;
+    -webkit-transition: -webkit-box-shadow 0.3s;
+    transition: -webkit-box-shadow 0.3s;
+    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, -webkit-box-shadow 0.3s; }
+    .form__btn:hover {
+      -webkit-box-shadow: 1px -5px 10px rgba(0, 144, 255, 0.46);
+              box-shadow: 1px -5px 10px rgba(0, 144, 255, 0.46); }
   .form__textarea {
     font-family: "Roboto", sans-serif;
     height: 144px;
@@ -379,8 +409,10 @@ ul {
   .section__header {
     margin-bottom: 53px; }
   .header__top {
-    margin-bottom: 335px;
+    margin-bottom: 320px;
     position: relative; }
+  .header__title {
+    margin-bottom: 32px; }
   .header__phone-img {
     display: block; }
   .header__hamburger-icon::before {
@@ -391,15 +423,15 @@ ul {
     width: 18px;
     height: 12px;
     position: absolute;
+    top: 20px;
     right: 0;
-    z-index: 2;
     cursor: pointer; }
   .header__hamburger-icon::after {
     display: none;
     content: "";
     position: absolute;
     right: 0;
-    z-index: 2;
+    z-index: 1;
     background-image: url(../images/close.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -413,7 +445,7 @@ ul {
   .logo {
     width: 73px;
     height: 48px;
-    z-index: 3; }
+    z-index: 1; }
   .nav__list {
     display: none; }
   .hamburger-menu:checked ~ .mobile-nav {
@@ -487,7 +519,8 @@ html {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 27px;
-  color: #3e3e3e; }
+  color: #3e3e3e;
+  scroll-behavior: smooth; }
 
 .container {
   max-width: 1020px;
