@@ -66,13 +66,14 @@ ul {
 .mobile-nav {
   background-color: #0075ff;
   position: absolute;
-  top: 0;
+  top: -100%;
   left: 0;
-  width: 100vw;
-  -webkit-transform: translate(-20px, -24px);
-          transform: translate(-20px, -24px);
-  height: 80vh;
-  display: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: top 0.3s;
+  transition: top 0.3s;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -80,7 +81,8 @@ ul {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding-top: 120px; }
+  padding-top: 120px;
+  padding-bottom: 39px; }
   .mobile-nav__item {
     margin-left: 21px;
     margin-bottom: 32px; }
@@ -91,7 +93,11 @@ ul {
     color: #fff;
     text-transform: uppercase;
     font-size: 22px;
-    line-height: 22px; }
+    line-height: 22px;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s; }
+    .mobile-nav__link:hover {
+      color: #9fadc2; }
   .mobile-nav__link[href="tel:+12345555555"] {
     font-size: 12px; }
   .mobile-nav__action {
@@ -104,7 +110,10 @@ ul {
       text-transform: uppercase;
       -webkit-transition: color 0.3s;
       transition: color 0.3s;
-      letter-spacing: 2px; }
+      letter-spacing: 2px;
+      transition: color 0.3s; }
+      .mobile-nav__action-link:hover {
+        color: #9fadc2; }
       .mobile-nav__action-link::after {
         content: "";
         display: block;
@@ -256,18 +265,31 @@ ul {
       -ms-flex-pack: justify;
           justify-content: space-between; }
 
-.gallery__img {
+.gallery__photo {
   width: calc(50% - 10px);
   height: 256px;
-  border-radius: 8px;
+  overflow: hidden;
+  border-radius: 8px; }
+  .gallery__photo--67 {
+    width: calc(67% - 10px); }
+  .gallery__photo--33 {
+    width: calc(33% - 10px); }
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
-     object-position: center; }
-  .gallery__img--67 {
-    width: calc(67% - 10px); }
-  .gallery__img--33 {
-    width: calc(33% - 10px); }
+     object-position: center;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: scale(1);
+          transform: scale(1); }
+
+.gallery__photo:hover .gallery__img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
 
 .consultation {
   display: -webkit-box;
@@ -408,40 +430,42 @@ ul {
 @media screen and (max-width: 768px) {
   .section__header {
     margin-bottom: 53px; }
-  .header__top {
-    margin-bottom: 320px;
+  .header {
     position: relative; }
-  .header__title {
-    margin-bottom: 32px; }
-  .header__phone-img {
-    display: block; }
-  .header__hamburger-icon::before {
-    content: "";
-    background-image: url(../images/hamburger.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 18px;
-    height: 12px;
-    position: absolute;
-    top: 20px;
-    right: 0;
-    cursor: pointer; }
-  .header__hamburger-icon::after {
-    display: none;
-    content: "";
-    position: absolute;
-    right: 0;
-    z-index: 1;
-    background-image: url(../images/close.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 16px;
-    width: 16px;
-    cursor: pointer; }
-  .header__phone {
-    display: none; }
-  .header__action {
-    display: none; }
+    .header__top {
+      margin-bottom: 320px; }
+    .header__title {
+      margin-bottom: 32px; }
+    .header__phone-img {
+      display: block; }
+    .header__hamburger-icon::before {
+      content: "";
+      background-image: url(../images/hamburger.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 18px;
+      height: 12px;
+      position: absolute;
+      top: 42px;
+      right: 23px;
+      cursor: pointer; }
+    .header__hamburger-icon::after {
+      display: none;
+      content: "";
+      position: absolute;
+      right: 24px;
+      top: 40px;
+      z-index: 1;
+      background-image: url(../images/close.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 16px;
+      width: 16px;
+      cursor: pointer; }
+    .header__phone {
+      display: none; }
+    .header__action {
+      display: none; }
   .logo {
     width: 73px;
     height: 48px;
@@ -449,9 +473,7 @@ ul {
   .nav__list {
     display: none; }
   .hamburger-menu:checked ~ .mobile-nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; }
+    top: 0; }
   .hamburger-menu:checked ~ .header__hamburger-icon::before {
     display: none; }
   .hamburger-menu:checked ~ .header__hamburger-icon::after {
@@ -473,7 +495,7 @@ ul {
   .gallery__description {
     margin-top: 16px;
     margin-bottom: 32px; }
-  .gallery__img {
+  .gallery__photo {
     width: calc(50% - 10px);
     height: 131px; }
   .gallery__link {
